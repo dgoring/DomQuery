@@ -1,11 +1,11 @@
 <?php
 
-namespace Rct567\DomQuery;
+namespace Dgoring\DomQuery;
 
 /**
  * Class DomQuery
  *
- * @package Rct567\DomQuery
+ * @package Dgoring\DomQuery
  */
 class DomQuery extends DomQueryNodes
 {
@@ -36,6 +36,8 @@ class DomQuery extends DomQueryNodes
         if ($node = $this->getFirstElmNode()) { // get value for first node
             return $node->nodeValue;
         }
+
+        return null;
     }
 
     /**
@@ -79,6 +81,8 @@ class DomQuery extends DomQueryNodes
         if ($node = $this->getFirstElmNode()) { // get attribute value for first element
             return $node->getAttribute($name);
         }
+
+        return null;
     }
 
     /**
@@ -86,9 +90,9 @@ class DomQuery extends DomQueryNodes
      * the named data store for the first element in the set of matched elements.
      *
      * @param string $key
-     * @param $val
+     * @param mixed $val
      *
-     * @return $this|string|object
+     * @return $this|string|object|null
      */
     public function data(string $key=null, $val=null)
     {
@@ -130,6 +134,8 @@ class DomQuery extends DomQueryNodes
                 return $val;
             }
         }
+
+        return null;
     }
 
     /**
@@ -172,7 +178,8 @@ class DomQuery extends DomQueryNodes
     /**
      * Convert css string to array
      *
-     * @param string containing style properties
+     * @param string $css
+     * containing style properties
      *
      * @return array with name-value as style properties
      */
@@ -195,7 +202,8 @@ class DomQuery extends DomQueryNodes
     /**
      * Convert css name-value array to string
      *
-     * @param array with style properties
+     * @param array $array
+     * with style properties
      *
      * @return string containing style properties
      */
@@ -215,7 +223,7 @@ class DomQuery extends DomQueryNodes
      * @param string $name
      * @param string $val
      *
-     * @return $this|string
+     * @return $this|string|null
      */
     public function css(string $name, $val=null)
     {
@@ -227,12 +235,15 @@ class DomQuery extends DomQueryNodes
             }
             return $this;
         }
+
         if ($node = $this->getFirstElmNode()) { // get css value for first element
             $style = self::parseStyle($node->getAttribute('style'));
             if (isset($style[$name])) {
                 return $style[$name];
             }
         }
+
+        return null;
     }
 
     /**
@@ -661,13 +672,14 @@ class DomQuery extends DomQueryNodes
         if ($selector === null) {
             if ($node = $this->getFirstElmNode()) {
                 $position = 0;
-                while ($node && ($node = $node->previousSibling)) {
+                while ($node = $node->previousSibling) {
                     if ($node instanceof \DOMElement) {
                         $position++;
                     } else {
                         break;
                     }
                 }
+
                 return $position;
             }
         } else {

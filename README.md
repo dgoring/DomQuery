@@ -3,12 +3,14 @@
 DomQuery is a PHP library that allows you to easily traverse and modify the DOM (HTML/XML). As a library it aims to
 provide 'jQuery like' access to the PHP DOMDocument class (http://php.net/manual/en/book.dom.php).
 
+Built Primarily by Rct567, but seems to have since abandoned it
+
 ## Installation
 
 Install the latest version with
 
 ```bash
-$ composer require rct567/dom-query
+$ composer require dgoring/dom-query
 ```
 
 ## Basic Usage
@@ -16,7 +18,7 @@ $ composer require rct567/dom-query
 ### Read attributes and properties:
 
 ``` php
-use Rct567\DomQuery\DomQuery;
+use Dgoring\DomQuery\DomQuery;
 
 $dom = new DomQuery('<div><h1 class="title">Hello</h1></div>');
 
@@ -34,7 +36,7 @@ echo count($dom->find('div, h1')); // output: 2
 ### Traversing nodes (result set):
 
 ``` php
-use Rct567\DomQuery\DomQuery;
+use Dgoring\DomQuery\DomQuery;
 
 $dom = new DomQuery('<a>1</a> <a>2</a> <a>3</a>');
 $links = $dom->children('a');
@@ -54,7 +56,7 @@ echo $links->get(-1)->textContent; // output 3
 ### Factory method (create instance alternative):
 
 ```php
-use Rct567\DomQuery\DomQuery;
+use Dgoring\DomQuery\DomQuery;
 
 DomQuery::create('<a title="hello"></a>')->attr('title') // hello
 ```
@@ -194,8 +196,10 @@ $dom->find('namespace\\:h1')->text();
 - Works with PHP 7.0 or above
 - Requires libxml PHP extension (enabled by default)
 
-### Inspiration/acknowledgements
+### Acknowledgements
 
+- https://github.com/jago86/DomQuery
+- https://github.com/Rct567/DOMQuery
 - https://github.com/wasinger/htmlpagedom
 - https://github.com/symfony/dom-crawler
 - https://github.com/ARTACK/DOMQuery

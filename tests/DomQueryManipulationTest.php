@@ -1,8 +1,8 @@
 <?php
 
-namespace Rct567\DomQuery\Tests;
+namespace Dgoring\DomQuery\Tests;
 
-use Rct567\DomQuery\DomQuery;
+use Dgoring\DomQuery\DomQuery;
 
 class DomQueryManipulationTest extends \PHPUnit\Framework\TestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Rct567\DomQuery;
+namespace Dgoring\DomQuery;
 
 /**
  * Class CssToXpath

@@ -1,9 +1,9 @@
 <?php
 
-namespace Rct567\DomQuery\Tests;
+namespace Dgoring\DomQuery\Tests;
 
-use Rct567\DomQuery\DomQuery;
-use Rct567\DomQuery\CssToXpath;
+use Dgoring\DomQuery\DomQuery;
+use Dgoring\DomQuery\CssToXpath;
 
 class DomQuerySelectorsTest extends \PHPUnit\Framework\TestCase
 {

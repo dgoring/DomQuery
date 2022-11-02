@@ -1,6 +1,6 @@
 <?php
 
-namespace Rct567\DomQuery;
+namespace Dgoring\DomQuery;
 
 /**
  * Class DomQueryNodes
@@ -13,7 +13,7 @@ namespace Rct567\DomQuery;
  *
  * @method string getAttribute(string $name)
  *
- * @package Rct567\DomQuery
+ * @package Dgoring\DomQuery
  */
 class DomQueryNodes implements \Countable, \IteratorAggregate, \ArrayAccess
 {
@@ -628,7 +628,7 @@ class DomQueryNodes implements \Countable, \IteratorAggregate, \ArrayAccess
      * Call method on first DOMElement
      *
      * @param string $name
-     * @param $arguments
+     * @param array $arguments
      *
      * @return mixed
      * @throws \Exception
